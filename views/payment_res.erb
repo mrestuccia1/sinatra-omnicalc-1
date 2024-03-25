@@ -14,7 +14,7 @@
     APR
   </dt>
   <dd>
-    <%= @apr %>
+    <%= sprintf("%.4f%%", @apr) %>
   </dd>
 
   <dt>
@@ -28,14 +28,15 @@
     Principal
   </dt>
   <dd>
-    <%= @present_value %>
+    <%= sprintf("$%.2f", @present_value)%>
   </dd>
 
   <dt>
     Payment
   </dt>
   <dd>
-    <%= @result %>
+    <!-- Had to look this one up (the thing given in the assignment wasn't working for me -->
+    <%= sprintf("$%0.2f", @result).gsub(/(\d)(?=(\d{3})+(?!\d))/, "\\1,") %>
   </dd>
 </dl>
 
@@ -45,10 +46,5 @@
 
   
 
-</body><style>
-@media print {
-  #simplifyJobsContainer {
-    display: none;
-  }
-}
-</style><div id="simplifyJobsContainer" style="position: absolute; top: 0px; left: 0px; width: 0px; height: 0px; overflow: visible; z-index: 2147483647;"><span></span></div><script id="simplifyJobsPageScript" src="chrome-extension://pbanhockgagggenencehbnadejlgchfc/js/pageScript.bundle.js"></script></html>
+</body>
+</html>
